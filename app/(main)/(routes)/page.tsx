@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-const state = true
+import { UserButton } from "@clerk/nextjs";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Home() {
   return (
     <div>
-    This is a protected route
+      <UserButton afterSignOutUrl="/" />
+      <ModeToggle />
     </div>
   );
 }
