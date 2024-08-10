@@ -41,6 +41,6 @@ export async function PATCH(
         return NextResponse.json(server)
     } catch (error) {
         console.log("[SERVER_ID_LEAVE]", error);
-        return new NextResponse("Internal Error", {status: 500})
+        return new NextResponse("Internal Error", {status: 500});
     }
 }
