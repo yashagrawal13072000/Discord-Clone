@@ -61,7 +61,7 @@ model Member {
   directMessages DirectMessage[]
 
   conversationsInitiated Conversation[] @relation("MemberOne")
-  conversationsRecieved Conversation[] @relation("MemberTwo")
+  conversationsReceived Conversation[] @relation("MemberTwo")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -128,6 +128,7 @@ model Conversation {
 
   directMessages DirectMessage[]
 
+  @@index([memberOneId])
   @@index([memberTwoId])
 
   @@unique([memberOneId, memberTwoId])
