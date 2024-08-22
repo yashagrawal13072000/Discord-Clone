@@ -20,13 +20,13 @@ export default async function handler(
             return res.status(401).json({error: "Unauthorized"});
         }
         if (!serverId) {
-            return res.status(400).json({error: "Server ID Missing"});
+            return res.status(401).json({error: "Server ID Missing"});
         }
         if (!channelId) {
-            return res.status(400).json({error: "Channel ID Missing"});
+            return res.status(401).json({error: "Channel ID Missing"});
         }
         if (!content) {
-            return res.status(400).json({error: "Content Missing"});
+            return res.status(401).json({error: "Content Missing"});
         }
 
         const server = await db.server.findFirst({
@@ -44,7 +44,7 @@ export default async function handler(
         });
 
         if (!server) {
-            return res.status(404).json({error: "Server not found"});
+            return res.status(404).json({message: "Server not found"});
         }
 
         const channel = await db.channel.findFirst({
@@ -55,13 +55,13 @@ export default async function handler(
         });
 
         if (!channel) {
-            return res.status(404).json({error: "Channel not found"});
+            return res.status(404).json({message: "Channel not found"});
         }
 
         const member = server.members.find((member) => member.profileId === profile.id);
 
         if (!member) {
-            return res.status(404).json({error: "Member not found"});
+            return res.status(404).json({message: "Member not found"});
         }
 
         const message = await db.message.create({
@@ -88,6 +88,6 @@ export default async function handler(
 
     } catch (error) {
         console.log("[MESSAGES_POST]", error);
-        return res.status(500).json({message: "Internall Error"});
+        return res.status(500).json({message: "Internal Error"});
     }
 }
