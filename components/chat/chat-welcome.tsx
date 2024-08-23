@@ -24,7 +24,7 @@ export const ChatWelcome = ({
             <p className="text-zinc-600 dark:text-zinc-400 text-sm">
                 {type === "channel"
                 ? `This is the start of the #${name} channel.`
-                : `This i sthe start of your conversation with ${name}`}
+                : `This is the start of your conversation with ${name}`}
             </p>
         </div>
     )
