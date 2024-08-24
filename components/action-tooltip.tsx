@@ -30,9 +30,7 @@ export const ActionTooltip = ({
                     <p className="font-semibold text-sm capitalize">
                         {label.toLowerCase()}
                     </p>
-
                 </TooltipContent>
-
             </Tooltip>
         </TooltipProvider>
     )

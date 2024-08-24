@@ -48,6 +48,7 @@ const ChannelIdPage = async ({
             />
             {channel.type === ChannelType.TEXT && (
                 <>
+                
                     <ChatMessages 
                     member={member}
                     name={channel.name}
@@ -62,7 +63,7 @@ const ChannelIdPage = async ({
                   paramKey="channelId"
                   paramValue={channel.id}
                 />
-            
+
                 <ChatInput
                     name={channel.name}
                     type="channel"

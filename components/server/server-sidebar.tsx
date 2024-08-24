@@ -5,7 +5,7 @@ import { ChannelType, MemberRole } from "@prisma/client";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Hash, Mic, ShieldCheck, Video } from "lucide-react";
+import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 
 import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
@@ -26,7 +26,7 @@ const iconMap = {
 const roleIconMap = {
     [MemberRole.GUEST]: null,
     [MemberRole.MODERATOR]: <ShieldCheck className="h-4 w-4 mr-2 text-indigo-500" />,
-    [MemberRole.ADMIN]: <ShieldCheck className="h-4 w-4 mr-2 text-rose-500" />
+    [MemberRole.ADMIN]: <ShieldAlert className="h-4 w-4 mr-2 text-rose-500" />
 }
 
 export const ServerSidebar = async({
@@ -189,7 +189,6 @@ export const ServerSidebar = async({
                     <div className="mb-2">
                         <ServerSection 
                         sectionType="members"
-                        channelType={ChannelType.TEXT}
                         role={role}
                         label="Members"
                         server={server}
