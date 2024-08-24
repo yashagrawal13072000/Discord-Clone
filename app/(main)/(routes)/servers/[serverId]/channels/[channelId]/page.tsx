@@ -40,7 +40,8 @@ const ChannelIdPage = async ({
         redirect("/");
     }
     return ( 
-        <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
+        <div className="h-[100vh]">
+        <div className="bg-white dark:bg-[#313338] h-full flex flex-col">
             <ChatHeader 
             name={channel.name}
             serverId={channel.serverId}
@@ -90,6 +91,7 @@ const ChannelIdPage = async ({
                 />
             )}
             
+        </div>
         </div>
      );
 }
