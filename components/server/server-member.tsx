@@ -11,7 +11,7 @@ interface ServerMemberProps {
     server: Server;
 }
 
-const roleIconMap = {
+const RoleIconMap = {
     [MemberRole.GUEST]: null,
     [MemberRole.MODERATOR]: <ShieldCheck className="h-4 w-4 ml-2 text-indigo-500" />,
     [MemberRole.ADMIN]: <ShieldCheck className="h-4 w-4 ml-2 text-rose-500" />
@@ -24,7 +24,7 @@ export const ServerMember = ({
     const params = useParams();
     const router = useRouter();
 
-    const icon = roleIconMap[member.role];
+    const icon = RoleIconMap[member.role];
 
     const onClick = () => {
         router.push(`/servers/${params?.serverId}/conversations/${member.id}`)
